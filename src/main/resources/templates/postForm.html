@@ -3,8 +3,17 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <title>MyCodeBlog</title>
-<!--CSS-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style/styleCss.css"/>-->
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 </head>
 <body>
 <header>
@@ -23,6 +32,7 @@
 </ol>
 </nav>
 <div>
+<th:block th:include="mensagemValidacao"></th:block>
  <form method="post">
  	<div class="form-group">
  		<input type="text" class="form-control" name="titulo" placeholder="Titulo *">
@@ -31,7 +41,7 @@
  	<input type="text" class="form-control" name="autor" placeholder="Autor *">
  	</div>
  	
- 	 <textarea  type="text" class="form-control" name="texto" placeholder="Texto *"></textarea>
+ 	 <textarea id="summernote" type="text" class="form-control" name="texto" placeholder="Texto *"></textarea>
  	 
  	 <small class="form-text text-muted">(*) Campos obrigatórios</small>
  	 
@@ -42,5 +52,13 @@
 </div>
 </div>
 </section>
+
+<script>
+    $('#summernote').summernote({
+        placeholder: 'Texto *',
+        tabsize: 2,
+        height: 300
+    });
+</script>
 </body>
 </html>
